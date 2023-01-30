@@ -5,6 +5,8 @@ import './App.css';
 function App() {
   const [itemText, setItemText] = useState('');
   const [listItems, setListItems] = useState([]);
+  const [isUpdating, setIsUpdating] = useState('');
+  const [updateItemText, setUpdateItemText] = useState('')
   
 //add new todo item to database
 const addItem = async (e) => {
@@ -44,6 +46,28 @@ const deleteItem = async (id) => {
   }
 }
 
+//update item
+const updateItem = async(e) => {
+  e.preventDefault()
+  try{
+    const res = await axios.put(`http://localhost:5500/api/item/${isUpdating}`, {item: updateItemText })
+    console.log(res.data)
+    const updatedItemIndex = listItems.findIndex(item => item._id === isUpdating)
+    const updatedItem = listItems[updatedItemIndex].item = updateItemText;
+    setUpdateItemText('');
+    setIsUpdating('');
+  }catch(err){
+    console.log(err);
+  }
+}
+//before updating item we need to show input field whre we will create our updated
+const renderUpdateForm = () => (
+  <form className="update-form" onSubmit={(e)=>{updateItem(e)}} >
+    <input className="update-new-input" type="text" placeholder="New Item" onChange={e=>{setUpdateItemText(e.target.value)}} value={updateItemText}/>
+    <button className="update-new-btn" type="submit">Update</button>
+  </form>
+)
+
 
   return (
     <div className="App">
@@ -56,9 +80,15 @@ const deleteItem = async (id) => {
         {
           listItems.map(item => (
             <div className="todo-item">
+              {
+                isUpdating === item._id
+                ? renderUpdateForm()
+                : <>
               <p className="item-content">{item.item}</p>
-              <button className="update-item">Update</button>
+              <button className="update-item" onClick={()=>{setIsUpdating(item._id)}} >Update</button>
               <button className="delete-item" onClick={()=>{deleteItem(item._id)}}>Delete</button>
+                </>
+              }
             </div>
           ))
         }

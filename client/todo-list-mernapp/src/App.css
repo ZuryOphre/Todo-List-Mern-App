@@ -115,3 +115,37 @@ margin-bottom: 10px;
   box-shadow: rgba(187, 44, 44, 0.35) 0 -25px 18px -14px inset,rgba(187, 44, 44, 0.25) 0 1px 2px,rgba(187, 44, 44, 0.25) 0 2px 4px,rgba(187, 44, 44, 0.25) 0 4px 8px,rgba(187, 44, 44, 0.25) 0 8px 16px,rgba(187, 44, 44, 0.25) 0 16px 32px;
   transform: scale(1.05) rotate(-1deg);
 }
+.update-form{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.update-new-input{
+  width: 80%;
+  border-radius: 30px;
+  border: 1px solid #eee;
+  padding: 8px;
+  outline: none;
+}
+.update-new-btn{
+  background-color: #fbc2f9;
+    border-radius: 100px;
+    box-shadow: rgba(187, 44, 158, 0.201) 0 -25px 18px -14px inset,rgba(187, 44, 177, 0.15) 0 1px 2px,rgba(187, 44, 175, 0.15) 0 2px 4px,rgba(187, 44, 165, 0.15) 0 4px 8px,rgba(187, 44, 175, 0.15) 0 8px 16px,rgba(187, 44, 187, 0.15) 0 16px 32px;
+    color: rgb(128, 0, 126);
+    cursor: pointer;
+    display: inline-block;
+    font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+    padding: 6px 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 250ms;
+    border: 0;
+    font-size: 16px;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+.update-new-btn:hover{
+  box-shadow: rgba(187, 44, 158, 0.201) 0 -25px 18px -14px inset,rgba(187, 44, 177, 0.15) 0 1px 2px,rgba(187, 44, 175, 0.15) 0 2px 4px,rgba(187, 44, 165, 0.15) 0 4px 8px,rgba(187, 44, 175, 0.15) 0 8px 16px,rgba(187, 44, 187, 0.15) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
